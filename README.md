@@ -35,7 +35,7 @@ For the additional feature, I added user authentication and role-based authoriza
   * ***mvn test***
 * Front End test
   * From the App directory:
-    * ***node_modules\.bin\jest***
+    * ***./node_modules/.bin/jest***
  
  
  
