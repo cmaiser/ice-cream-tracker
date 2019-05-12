@@ -47,6 +47,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     }
 
+    /*
+    Authenticate against current user in the database
+     */
     public DaoAuthenticationProvider authenticationProvider() {
 
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
@@ -57,6 +60,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return authProvider;
     }
 
+    /*
+    Global configuration to enable CORS, useful during developrment when
+    UI is running on port 3000 and server is running on port 8080.
+     */
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
 
@@ -65,13 +72,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return source;
     }
 
-    @Bean
-    public PasswordEncoder encoder() {
-
-        return new BCryptPasswordEncoder();
-
-    }
-
+    /*
+    Basic Authorization configuration.  The app currently has one user with role "USER", but this can be
+    expanded to support granular authorization on resources for other roles
+     */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -94,16 +98,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    @Profile("dev")
-    public RequestCache refererRequestCache() {
-        return new HttpSessionRequestCache() {
-            @Override
-            public void saveRequest(HttpServletRequest request, HttpServletResponse response) {
-                String referrer = request.getHeader("referer");
-                if (referrer != null) {
-                    request.getSession().setAttribute("SPRING_SECURITY_SAVED_REQUEST", new SimpleSavedRequest(referrer));
-                }
-            }
-        };
+    public PasswordEncoder encoder() {
+
+        return new BCryptPasswordEncoder();
+
     }
 }

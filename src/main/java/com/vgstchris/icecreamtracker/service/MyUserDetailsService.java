@@ -9,6 +9,11 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+/*
+Custom UserDetailsService to pull principle (User) from database
+during authentication
+ */
+
 @Service
 public class MyUserDetailsService implements UserDetailsService {
 

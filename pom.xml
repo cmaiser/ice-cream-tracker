@@ -8,7 +8,7 @@
 		<version>2.1.4.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.vangst</groupId>
+	<groupId>com.vgst</groupId>
 	<artifactId>ice-cream-tracker</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<name>ice-cream-tracker</name>

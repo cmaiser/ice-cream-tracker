@@ -10,6 +10,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+/*
+Override getAuthorities in UserDetails and add logic to add role information from the
+database
+ */
+
 public class MyUserPrincipal implements UserDetails {
 
     @Getter

@@ -17,6 +17,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/*
+Initialize some starting data and insert it into the H2 database:
+
+1 user with username: chris, password: chris (encoded)
+3 flavors: Chocolate, Vanilla, Strawberry
+
+This initializer does not add ratings or any relational data between User
+and Flavor
+ */
+
 @Component
 @RequiredArgsConstructor
 public class DataInitializer implements CommandLineRunner {

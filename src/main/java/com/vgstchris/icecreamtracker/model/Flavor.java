@@ -6,6 +6,12 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/*
+Flavor represents an ice cream flavor.
+
+Flavor has a many-to-many relationship with User
+ */
 @Data
 @AllArgsConstructor
 @RequiredArgsConstructor

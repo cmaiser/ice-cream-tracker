@@ -31,12 +31,18 @@ public class IceCreamController {
     @Autowired
     private RatingRepository ratingRepository;
 
+    /*
+    Return a list of all known ice cream flavors and their associated rating (if applicable)
+     */
     @GetMapping("/allFlavors")
     Collection<Flavor> allFlavors(Authentication authentication) {
 
         return flavorRepository.findAllByOrderByFlavorAsc();
     }
 
+    /*
+    Return a single flavor and associated flavor by id
+     */
     @GetMapping("/flavor/{id}")
     ResponseEntity<Flavor> getFlavorById(@PathVariable Long id, Authentication authentication) {
 
@@ -46,6 +52,9 @@ public class IceCreamController {
         return ResponseEntity.ok().body(returnFlavor);
     }
 
+    /*
+    Return authenticated user or empty object if not authenticated
+     */
     @GetMapping("/user")
     User currentUserName(Authentication authentication) {
 
@@ -56,6 +65,9 @@ public class IceCreamController {
         return new User();
     }
 
+    /*
+    Add a new flavor to the list of known flavors
+     */
     @PostMapping("/flavor")
     ResponseEntity<Flavor> addFlavor(@Valid @RequestBody Flavor flavor) throws URISyntaxException {
 
@@ -63,6 +75,9 @@ public class IceCreamController {
         return ResponseEntity.created(new URI("/api/flavor/" + result.getId())).body(result);
     }
 
+    /*
+    Add a new rating for a User/Flavor pair, creating a new many-to-many relationship
+     */
     @PostMapping("/rating")
     ResponseEntity<Rating> addRating(@Valid @RequestBody Rating rating, Authentication authentication) throws URISyntaxException {
 
@@ -82,6 +97,9 @@ public class IceCreamController {
         return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
     }
 
+    /*
+    Update a current rating fora User/Flavor pair
+     */
     @PutMapping("/rating")
     ResponseEntity<Flavor> updateRating(@Valid @RequestBody Rating rating, Authentication authentication) throws URISyntaxException {
 

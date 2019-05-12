@@ -4,6 +4,10 @@ import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 
+/*
+Key for composite id in Rating
+ */
+
 @EqualsAndHashCode
 public class RatingKey implements Serializable {
 
