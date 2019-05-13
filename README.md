@@ -2,14 +2,14 @@
 ## Explanation
 
 For this assignment, I implemented the api using Spring Boot backed
-by an embedded H2 database.  The front end was created using 
-yarn and jest.  The full deliverable is packaged by Maven for easy
+by an embedded H2 database.  The React front end was created using 
+yarn and jest.  The full deliverable is packaged by Maven, and all files are served by the application server for easy
 portability.  
 
 For the additional feature, I added user authentication and role-based authorization
  in a way that can easily be expanded to support multiple users.  To do this,
  I created a data model with a many-to-many relationship between a user (User)
- and an cce cream flavor (Flavor).  The rating is stored in the join table (Rating).
+ and an Ice cream flavor (Flavor).  The rating is stored in the join table (Rating).
  
  For the sake of the demo, authentication is triggered by clicking the **Login as Chris** button.
  This will authenticate against a principal in the User table where username is
